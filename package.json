@@ -1,14 +1,20 @@
 {
  "name": "stories",
  "version": "1.0.0",
+ "main": "dist/index.min.js",
+ "types": "dist/index.d.ts",
  "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1"
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "minify": "uglifyjs --compress --mangle --output dist/index.min.js -- dist/index.js",
+  "build": "tsc --declaration && npm run minify"
  },
  "keywords": [],
  "author": "rodionveretin",
  "license": "ISC",
  "description": "",
  "devDependencies": {
-  "typescript": "^5.7.3"
+  "jsmin": "^1.0.1",
+  "typescript": "^5.7.3",
+  "uglify-js": "^3.19.3"
  }
 }
