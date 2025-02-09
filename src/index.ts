@@ -10,10 +10,17 @@ export class StoryPlayer {
  private container: HTMLElement;
  private timer: number | null = null;
 
- constructor(containerId: string) {
-  const container = document.getElementById(containerId);
-  if (!container) throw new Error('Container not found');
-  this.container = container;
+ constructor(container: string) {
+  const containerElement =
+   typeof container === 'string'
+    ? document.querySelector(container)
+    : container;
+  console.log(containerElement);
+  // if (!containerElement) throw new Error('Container not found');
+  if (!containerElement) {
+   throw new Error('Container not found');
+  }
+  this.container = containerElement as HTMLElement;
  }
 
  addStories(stories: Story[]) {

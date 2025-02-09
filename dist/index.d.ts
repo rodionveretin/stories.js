@@ -8,7 +8,7 @@ export declare class StoryPlayer {
     private currentIndex;
     private container;
     private timer;
-    constructor(containerId: string);
+    constructor(container: string);
     addStories(stories: Story[]): void;
     start(): void;
     private showStory;
